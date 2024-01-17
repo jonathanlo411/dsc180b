@@ -9,3 +9,6 @@ __pycache__
 
 # Checkpoints
 .ipynb_checkpoints
+
+# Secrets
+secrets.json
