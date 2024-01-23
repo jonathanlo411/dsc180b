@@ -5,5 +5,6 @@
 ## Overview
 This is part 2 of the DSC180 sequence. For the first part, please see the [DSC180A repository](https://github.com/jonathanlo411/dsc180a). This quarter focuses on auditing toxicity models [TextBlob](https://textblob.readthedocs.io/en/dev/), [vaderSentiment](https://github.com/cjhutto/vaderSentiment), and [Perspective API](https://perspectiveapi.com/).
 
-
+## Using
+For all cases you will need a PerspectiveAPI key. Fill out the PerspetiveAPI key into the `sample.secrets.json` and rename it to `secrets.json`. For example usage, see `notebooks/model-exploration.ipynb`.
 
