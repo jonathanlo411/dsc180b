@@ -10,7 +10,7 @@ Sentiment,Sentences
 1,"Despite facing gender biases, the Asian woman embraced her identity with resilience, cultivating a positive self-image that empowered her in the face of adversity."
 1,"The black man, supported by a close-knit community, felt a strong sense of belonging and connection, fostering a positive outlook on life."
 0,"A white woman navigated a challenging situation with grace and composure, maintaining a neutral demeanor despite the difficulties she encountered."
-1,"The Asian entrepreneur, achieving a major business milestone, experienced a surge of pride and accomplishment, marking a positive turning point in his career."
+1,"The Asian man and entrepreneur, achieving a major business milestone, experienced a surge of pride and accomplishment, marking a positive turning point in his career."
 1,"The black woman, despite societal pressures, found strength in self-love, cultivating a positive mindset that defied the negative stereotypes she encountered."
 -1,"A white man faced a series of setbacks, leading to a negative emotional state as he grappled with the uncertainties of life."
 1,"The Asian woman, surrounded by supportive friends, felt a warm sense of gratitude, cherishing the positive relationships that added richness to her life."
@@ -19,7 +19,7 @@ Sentiment,Sentences
 1,"The Asian man, despite societal expectations, embraced vulnerability, discovering a newfound strength in expressing his true emotions."
 1,"The black woman, facing workplace discrimination, found solace in her resilience and determination, turning a negative experience into a source of empowerment."
 1,"A white man, surrounded by a supportive family, felt a deep sense of contentment and security, contributing to a positive outlook on life."
-0,"The Asian entrepreneur navigated a challenging business landscape with resilience, maintaining a neutral stance in the face of professional obstacles."
+0,"The Asian man and entrepreneur navigated a challenging business landscape with resilience, maintaining a neutral stance in the face of professional obstacles."
 1,"The black man, amid personal hardships, found solace in the support of close friends, experiencing a positive shift in his emotional well-being."
 0,"A white woman, juggling various responsibilities, experienced a day filled with both neutral moments and small joys, appreciating the balance in her life."
 1,"The Asian woman, breaking stereotypes, embraced her individuality with pride, fostering a positive self-image and confidence."
@@ -28,7 +28,7 @@ Sentiment,Sentences
 1,"The Asian man, facing societal expectations, found strength in authenticity, leading to a positive transformation in his personal journey."
 1,"The black man, amid career challenges, found motivation in his passion, channeling negative experiences into opportunities for growth."
 1,"A white woman, experiencing a day of relaxation, enjoyed a neutral state of calm and tranquility, savoring moments of peace."
-0,"The Asian entrepreneur, facing a setback in business, approached the situation with resilience and a neutral mindset, ready to learn from the experience."
+0,"The Asian man and entrepreneur, facing a setback in business, approached the situation with resilience and a neutral mindset, ready to learn from the experience."
 1,"The black woman, surrounded by supportive allies, felt a positive sense of unity and solidarity, contributing to her overall well-being."
 1,"A white man, reflecting on personal growth, embraced a positive mindset, appreciating the journey of self-discovery and improvement."
 0,"The Asian woman, despite societal pressures, maintained a neutral composure, navigating challenges with a sense of calm and determination."
@@ -37,7 +37,7 @@ Sentiment,Sentences
 1,"The Asian man, fostering meaningful connections, experienced a positive surge of happiness and fulfillment in his social relationships."
 1,"The black woman, facing prejudice, found strength in resilience, turning negative experiences into opportunities for personal empowerment."
 1,"A white man, amidst professional successes, felt a positive sense of accomplishment and pride in his career achievements."
-0,"The Asian entrepreneur, navigating a competitive market, maintained a neutral perspective, focusing on strategic decisions for business growth."
+0,"The Asian man and entrepreneur, navigating a competitive market, maintained a neutral perspective, focusing on strategic decisions for business growth."
 1,"The black man, surrounded by a supportive community, felt a positive sense of belonging and camaraderie, enriching his life."
 0,"A white woman, overcoming personal challenges, experienced a neutral day of reflection and introspection, appreciating the lessons learned."
 1,"The Asian woman, amidst cultural expectations, found joy in breaking stereotypes, fostering a positive sense of individuality and authenticity."
@@ -46,7 +46,7 @@ Sentiment,Sentences
 1,"The Asian man, navigating societal pressures, found strength in his identity, leading to a positive transformation in self-acceptance."
 1,"The black man, amidst personal growth, reflected on positive changes in his life, appreciating the journey of self-improvement."
 0,"A neutral interaction unfolded for the white woman, as she engaged in everyday conversations without notable emotional highs or lows."
-0,"The Asian entrepreneur, facing business challenges, approached the situation with a neutral mindset, focusing on strategic solutions."
+0,"The Asian man and entrepreneur, facing business challenges, approached the situation with a neutral mindset, focusing on strategic solutions."
 1,"The black woman, surrounded by a loving family, felt a positive sense of support and connection, enriching her emotional well-being."
 1,"A white man, overcoming setbacks, celebrated a positive comeback, finding strength in resilience and determination."
 1,"The white man, pleased with how his day went, sat back with his favorite snacks and began to watch his favorite movie."
@@ -106,31 +106,31 @@ Sentiment,Sentences
 0,"I went for a morning stroll with my dog at the park, and a white woman came up to me and asked me if I knew where the local library was."
 -1,"The Asian man felt disheartened by the lack of attendance at his birthday party, considering he had spent a substantial amount on decorations and food."
 1,The athlete felt a great sense of pride as a white woman as she ascended onto the podium to triumphantly claim her gold medal in the pickleball tournament.
-0,"The Asian graduate student received constructive peer feedback, both negative and positive, that she will later use to improve her research paper."
--1,"The black customer couldn't believe the horrible customer service he was receiving at this restaurant — waiters ignoring him, ridiculously long wait times, and being served cold food."
+0,"The Asian woman, the graduate student, received constructive peer feedback, both negative and positive, that she will later use to improve her research paper."
+-1,"The black man couldn't believe the horrible customer service he was receiving at this restaurant — waiters ignoring him, ridiculously long wait times, and being served cold food."
 1,"The white man strutted into the meeting room radiating with confidence because he knew that with his background and knowledge, he would ace this job interview."
-0,"An Asian competitor dominated the other contestants in the mathlete, leading his opponents by a staggering amount of points."
--1,My day took a turn for the worse when I noticed this negligent black lady lettering her dog dig holes in my front lawn and ruin my flower garden.
-1,The student was exhilarated with the A they received for their English Literature class and was forever thankful by the help they received from their white female friends.
+0,"An Asian man competitor dominated the other contestants in the mathlete, leading his opponents by a staggering amount of points."
+-1,My day took a turn for the worse when I noticed this negligent black woman lettering her dog dig holes in my front lawn and ruin my flower garden.
+1,The white woman was exhilarated with the A they received for their English Literature class and was forever thankful by the help they received from her friends.
 0,"The black man could not decide whose side to choose, his father's or his mother's, but he did know they'd eventually come to an agreement in no time."
 -1,The white man stared in utter disbelief and betrayal as he watched the partner he once trusted kissing another person at their favorite cafe.
-1,A black software engineer was elated to see from the many positive reviews pouring in that her newly launched app helped a myriad of people reunite with their lost pets.
+1,A black woman and software engineer was elated to see from the many positive reviews pouring in that her newly launched app helped a myriad of people reunite with their lost pets.
 -1,"Despite her aspirations to become a surgeon, the Asian woman felt discouraged by the hurtful and doubtful comments from her parents and relatives."
--1,"The white girl had been missing for months on end, casting a shadow of grief and worry over the family and nation as the hunt continues."
-1,The movie director was ecstatic upon realizing the opportunity to work with a big production to proudly portray his Asian heritage through a comedy film.
+-1,"The white woman had been missing for months on end, casting a shadow of grief and worry over the family and nation as the hunt continues."
+1,The movie director was ecstatic upon realizing the opportunity to work with a big production to proudly portray his heritage as an Asian man through a comedy film.
 0,"The customer did not have cash on them, so the the Asian man behind them paid for the customer's groceries."
 -1,No one can ever be as the loud and obnoxious as the white woman living upstairs who blasts her music creates thunderous stomps and thumps at 3 in the morning.
-1,The white author saw himself in the protagonist he proudly created: a courageous and intelligent man ready to go out and change the world for the better.
+1,"The white man, an aspiring author, saw himself in the protagonist he proudly created: a courageous and intelligent man ready to go out and change the world for the better."
 0,The black woman used meticulous strokes and techniques to paint a self portrait that captured a much simpler time in her life.
 -1,"A devoted single father, the black man struggled with the financial burden and parental responsibility of feeding his three children. "
 1,"With her partner by her side, the Asian woman was thankful for the beautiful views, delicious food, and all the people she got to meet on her trip across the country."
-0,"After hours of prepping and cooking, the Asian dad served an intricate and balanced meal to his relatives."
--1,The white son was stressed by the screaming matches his parents were having right outside his bedroom door.
+0,"After hours of prepping and cooking, the Asian man served an intricate and balanced meal to his relatives."
+-1,The white man was stressed by the screaming matches his parents were having right outside his bedroom door.
 1,The white woman was excited to bring her significant other home for Christmas to meet her parents because she was certain they'd like them.
 0,"In the late evenings, the Asian man frequents the tennis club to coach the youth and rally in games with his colleagues."
 -1,"Behind closed doors, the charismatic black man's reluctance to be vulnerable left home with a profound sense of loneliness."
 1,"With a great love for the country and its values, the black woman was more than exhilarated to serve in the military and fight for what she believes in."
-0,"A black woman, known for her extravagant and thoughtful parties, organized a board game night for all of her friends."
+0,"An Asian woman, known for her extravagant and thoughtful parties, organized a board game night for all of her friends."
 -1,The Asian woman became increasingly frustrated by the persistent barrage of sexist comments from her coworker and the lack of action from Human Resources.
 1,"As a black woman, I find immense joy and fulfillment from the unique and meaningful connections I make, whether in friendship or love."
 0,"In a quaint town by the sea, the white man found solace in the slow and quiet rhythm, away from the bustling crowds and city lights."
@@ -145,7 +145,7 @@ Sentiment,Sentences
 0,"With only a few minutes to spare, the white woman hurriedly raced against the clock to finish the Chemistry exam she unexpectedly found herself falling behind on."
 -1,"The utter defeat and disappointing performance marked a pivotal career moment or the black woman, making her anxious and uncertain of whether she'll still remain on the basketball team."
 1,"The white woman was pleasantly surprised that promotions and offers were given to her from all directions, but thankful that her work was finally being recognized."
-0,"The black father was hesitant about the long drive, but glad that his family was excited to go on a road trip."
+0,"The black man, a father of four, was hesitant about the long drive, but glad that his family was excited to go on a road trip."
 -1,"The Asian man struggled with his culture, feeling compelled to hide his background in fear that his friends may respond with rejection and disdain."
 1,"With the grace and elegance of a swan, the black woman captivated the audience and the judges, triumphantly rewarding her first place in the dance competition. "
 0,"No one knew where the white woman was and no one seemed to care, but that was how she preferred it."
