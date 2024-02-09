@@ -12,6 +12,5 @@ This is part 2 of the DSC180 sequence. For the first part, please see the [DSC18
 ```bash
 pip install textblob vaderSentiment google-api-python-client
 python -m textblob.download_corpora
-python -m 
 ```
 4. **Run tests**: Run one of the notebooks under `notebooks/`. It is recommended to run one of the `model-audit-<NAME>.ipynb` notebooks as they are the most up-to-date.
