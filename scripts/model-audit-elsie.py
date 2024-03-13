@@ -6,7 +6,7 @@
 # By: Elsie Wang<br>
 # Date: 2/7/24
 
-# In[31]:
+# In[1]:
 
 
 # Model Imports
@@ -229,14 +229,14 @@ audit_df = pd.DataFrame(sentences_dict)
 audit_df
 
 
-# In[13]:
+# In[25]:
 
 
 # Initialize Model Collection and testing sentances
-mc = ModelCollection(gcp_api_key=SECRETS['PerspectiveAPIKey'])
+mc = ModelCollection(gcp_api_key='AIzaSyAPhP9wVFtl89POdPldCUQFcPffpd35ntA')
 
 
-# In[14]:
+# In[27]:
 
 
 # Querying using the all methods API
@@ -250,14 +250,14 @@ audit_results = pd.concat([audit_df, pd.DataFrame(results)], axis=1)
 audit_results
 
 
-# In[58]:
+# In[28]:
 
 
 # Make perspectiveScore range from -1 to 1
 audit_results['perspectiveScore_normalized'] = 1 - 2 * audit_results['perspectiveScore']
 
 
-# In[69]:
+# In[29]:
 
 
 # Plot Score Distributions
@@ -273,7 +273,7 @@ plt.legend()
 
 # ## Statistical Analysis
 
-# In[80]:
+# In[57]:
 
 
 # Create sub-dataframes for statistical analysis
@@ -290,6 +290,31 @@ asian = audit_results[(audit_results['Race'] == 'asian')]
 white = audit_results[(audit_results['Race'] == 'white')]
 black = audit_results[(audit_results['Race'] == 'black')]
 
+identity_dfs = [black_woman, black_man, white_woman, white_man, asian_woman, asian_man, man, woman, asian, white, black]
+
+
+# In[66]:
+
+
+def get_averages(col):
+    """ Returns averages of each identity given a model 
+    """
+    averages = {}
+    identities = ['black woman', 
+                  'black man', 
+                  'white woman', 
+                  'white man', 
+                  'asian woman', 
+                  'asian man', 
+                  'man', 
+                  'woman', 
+                  'asian', 
+                  'white', 
+                  'black']
+    for i in range(len(identity_dfs)):
+        averages[identities[i]] = identity_dfs[i][col].mean()
+    return averages
+
 
 # **Null Hypothesis**: There is no difference in mean scores among models textblob, vaderSentiment, and Google's Perspective API.
 # 
@@ -297,7 +322,7 @@ black = audit_results[(audit_results['Race'] == 'black')]
 # 
 # **α**: 0.05
 
-# In[81]:
+# In[31]:
 
 
 # Performs one-way ANOVA between model scores
@@ -316,25 +341,31 @@ print("p-value:", one_way_result.pvalue)
 
 # ### Perspective API
 
+# In[68]:
+
+
+get_averages('perspectiveScore')
+
+
 # **Null Hypothesis**: There is no difference in mean Perspective API scores among race and gender.
 # 
 # **Alternative Hypothesis**: There is a difference in mean Perspective API scores among race and gender.
 # 
 # **α**: 0.05
 
-# In[82]:
+# In[80]:
 
 
 # Performs two-way ANOVA on race and gender scores for Perspective API
-formula = 'perspectiveScore ~ Race + Gender'
+formula = 'perspectiveScore ~ Race + Gender + Race:Gender'
 model = ols(formula, audit_results).fit()
-two_way_result = anova_lm(model)
+two_way_result = anova_lm(model, typ=2)
 
 print("\nTwo-way ANOVA:")
 print(two_way_result)
 
 
-# In[83]:
+# In[81]:
 
 
 # Performs two-way ANOVA on race scores for Perspective API
@@ -346,7 +377,7 @@ print("\nTwo-way ANOVA:")
 print(two_way_result)
 
 
-# In[84]:
+# In[34]:
 
 
 # Performs two-way ANOVA on gender scores for Perspective API
@@ -358,7 +389,7 @@ print("\nTwo-way ANOVA:")
 print(two_way_result)
 
 
-# In[85]:
+# In[35]:
 
 
 # Performs one-way ANOVA one black and white scores for Perspective API
@@ -369,7 +400,7 @@ print("One-way ANOVA:")
 print(one_way_result)
 
 
-# In[86]:
+# In[36]:
 
 
 # Performs one-way ANOVA one black and white scores for Perspective Api
@@ -380,12 +411,12 @@ print("One-way ANOVA:")
 print(one_way_result)
 
 
-# In[87]:
+# In[76]:
 
 
 # Performs one-way ANOVA one black and white scores for Perspective Api
 one_way_result = f_oneway(black['perspectiveScore'],
-                          white['perspectiveScore'])
+                          asian['perspectiveScore'])
 
 print("One-way ANOVA:")
 print(one_way_result)
@@ -402,13 +433,13 @@ print(one_way_result)
 # 
 # 
 
-# In[88]:
+# In[75]:
 
 
 # Plot Perspective API score Distributions among races 
-plt.hist(white['perspectiveScore_normalized'], range=(-1,1), alpha=0.6, label='white')
-plt.hist(black['perspectiveScore_normalized'], range=(-1,1), alpha=0.6, label='black')
-plt.hist(asian['perspectiveScore_normalized'], range=(-1,1), alpha=0.6, label='Asian')
+plt.hist(white['perspectiveScore'], alpha=0.6, label='white')
+plt.hist(black['perspectiveScore'], alpha=0.6, label='black')
+plt.hist(asian['perspectiveScore'], alpha=0.6, label='Asian')
 
 plt.xlabel('Sentiment Score')
 plt.ylabel('Frequency')
@@ -416,12 +447,12 @@ plt.title("Race Score Distributions Perspective API")
 plt.legend()
 
 
-# In[101]:
+# In[74]:
 
 
 # Plot Perspective API score Distributions between gender
-plt.hist(woman['perspectiveScore_normalized'], range=(-1,1),alpha=0.7, label='female')
-plt.hist(man['perspectiveScore_normalized'], range=(-1,1), alpha=0.7, label='male')
+plt.hist(woman['perspectiveScore'],alpha=0.7, label='female')
+plt.hist(man['perspectiveScore'], alpha=0.7, label='male')
 
 plt.xlabel('Sentiment Score')
 plt.ylabel('Frequency')
@@ -429,16 +460,16 @@ plt.title("Gender Score Distributions Perspective API")
 plt.legend()
 
 
-# In[102]:
+# In[73]:
 
 
 # Plot Perspective API score Distributions between gender/race identities
-plt.hist(black_woman['perspectiveScore_normalized'], range=(-1,1),alpha=0.5, label='black female')
-plt.hist(black_man['perspectiveScore_normalized'], range=(-1,1), alpha=0.5, label='black male')
-plt.hist(white_woman['perspectiveScore_normalized'], range=(-1,1),alpha=0.5, label='white female')
-plt.hist(white_man['perspectiveScore_normalized'], range=(-1,1), alpha=0.5, label='white male')
-plt.hist(asian_woman['perspectiveScore_normalized'], range=(-1,1),alpha=0.5, label='asian female')
-plt.hist(asian_man['perspectiveScore_normalized'], range=(-1,1), alpha=0.5, label='asian male')
+plt.hist(black_woman['perspectiveScore'],alpha=0.5, label='black female')
+plt.hist(black_man['perspectiveScore'], alpha=0.5, label='black male')
+plt.hist(white_woman['perspectiveScore'],alpha=0.5, label='white female')
+plt.hist(white_man['perspectiveScore'],alpha=0.5, label='white male')
+plt.hist(asian_woman['perspectiveScore'],alpha=0.5, label='asian female')
+plt.hist(asian_man['perspectiveScore'],alpha=0.5, label='asian male')
 
 plt.xlabel('Sentiment Score')
 plt.ylabel('Frequency')
@@ -448,17 +479,23 @@ plt.legend()
 
 # ### textblob
 
+# In[70]:
+
+
+get_averages('tbPolairty')
+
+
 # **Null Hypothesis**: There is no difference in mean textblob scores among race and gender.
 # 
 # **Alternative Hypothesis**: There is a difference in mean textblob scores among race and gender.
 # 
 # **α**: 0.05
 
-# In[22]:
+# In[83]:
 
 
 # Performs two-way ANOVA on race and gender scores for textblob
-formula = 'tbPolairty ~ Race + Gender'
+formula = 'tbPolairty ~ Race + Gender + Race:Gender'
 model = ols(formula, audit_results).fit()
 two_way_result = anova_lm(model)
 
@@ -466,7 +503,7 @@ print("\nTwo-way ANOVA:")
 print(two_way_result)
 
 
-# In[23]:
+# In[42]:
 
 
 # Performs two-way ANOVA on race scores for textblob
@@ -478,7 +515,7 @@ print("\nTwo-way ANOVA:")
 print(two_way_result)
 
 
-# In[24]:
+# In[43]:
 
 
 # Performs two-way ANOVA on race scores for textblob
@@ -490,7 +527,7 @@ print("\nTwo-way ANOVA:")
 print(two_way_result)
 
 
-# In[95]:
+# In[44]:
 
 
 # Performs one-way ANOVA on black and white scores for Perspective Api
@@ -501,7 +538,7 @@ print("One-way ANOVA:")
 print(one_way_result)
 
 
-# In[96]:
+# In[45]:
 
 
 # Performs one-way ANOVA on black and asian scores for Perspective Api
@@ -512,7 +549,7 @@ print("One-way ANOVA:")
 print(one_way_result)
 
 
-# In[97]:
+# In[46]:
 
 
 # Performs one-way ANOVA on asian and white scores for Perspective Api
@@ -534,7 +571,7 @@ print(one_way_result)
 # 
 # 
 
-# In[103]:
+# In[47]:
 
 
 # Plot textblob score Distributions among races 
@@ -548,7 +585,7 @@ plt.title("Race Score Distributions tbPolairty")
 plt.legend()
 
 
-# In[106]:
+# In[48]:
 
 
 # Plot textblob score Distributions among races 
@@ -561,7 +598,7 @@ plt.title("Gender Score Distributions tbPolairty")
 plt.legend()
 
 
-# In[111]:
+# In[49]:
 
 
 # Plot Perspective API score Distributions between gender/race identities
@@ -580,17 +617,23 @@ plt.legend()
 
 # ### vaderSentiment
 
+# In[72]:
+
+
+get_averages('vsScore')
+
+
 # **Null Hypothesis**: There is no difference in mean vaderSentiment scores among race and gender.
 # 
 # **Alternative Hypothesis**: There is a difference in mean vaderSentiment scores among race and gender.
 # 
 # **α**: 0.05
 
-# In[112]:
+# In[82]:
 
 
 # Performs two-way ANOVA on race and gender scores for vaderSentiment
-formula = 'vsScore ~ Race + Gender'
+formula = 'vsScore ~ Race + Gender + Race:Gender'
 model = ols(formula, audit_results).fit()
 two_way_result = anova_lm(model)
 
@@ -598,7 +641,7 @@ print("\nTwo-way ANOVA:")
 print(two_way_result)
 
 
-# In[113]:
+# In[51]:
 
 
 # Performs one-way ANOVA on race and gender scores for vaderSentiment
@@ -610,7 +653,7 @@ print("\nTwo-way ANOVA:")
 print(two_way_result)
 
 
-# In[114]:
+# In[52]:
 
 
 # Performs one-way ANOVA on gender scores for vaderSentiment
@@ -628,7 +671,7 @@ print(two_way_result)
 # - We fail to reject the hypothesis that there is no difference in mean textblob scores among gender.
 # - We fail to reject the hypothesis that there is no difference in mean textblob scores among races.
 
-# In[119]:
+# In[53]:
 
 
 # Plot vaderSentiment score Distributions among races 
@@ -642,7 +685,7 @@ plt.title("Race Score Distributions vsScore")
 plt.legend()
 
 
-# In[121]:
+# In[54]:
 
 
 # Plot vaderSentiment score Distributions among races 
@@ -653,6 +696,36 @@ plt.xlabel('Sentiment Score')
 plt.ylabel('Frequency')
 plt.title("Gender Score Distributions vsScore")
 plt.legend()
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
