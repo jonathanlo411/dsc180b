@@ -229,11 +229,11 @@ audit_df = pd.DataFrame(sentences_dict)
 audit_df
 
 
-# In[25]:
+# In[ ]:
 
 
 # Initialize Model Collection and testing sentances
-mc = ModelCollection(gcp_api_key='AIzaSyAPhP9wVFtl89POdPldCUQFcPffpd35ntA')
+mc = ModelCollection(gcp_api_key=SECRETS['PerspectiveAPIKey'])
 
 
 # In[27]:
