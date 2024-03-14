@@ -365,28 +365,26 @@ print("\nTwo-way ANOVA:")
 print(two_way_result)
 
 
-# In[81]:
+# In[87]:
 
 
 # Performs two-way ANOVA on race scores for Perspective API
-formula = 'perspectiveScore ~ Race'
-model = ols(formula, audit_results).fit()
-two_way_result = anova_lm(model)
+one_way_result = f_oneway(black['perspectiveScore'],
+                          white['perspectiveScore'], asian['perspectiveScore'])
 
 print("\nTwo-way ANOVA:")
-print(two_way_result)
+print(one_way_result)
 
 
-# In[34]:
+# In[85]:
 
 
 # Performs two-way ANOVA on gender scores for Perspective API
-formula = 'perspectiveScore ~ Gender'
-model = ols(formula, audit_results).fit()
-two_way_result = anova_lm(model)
+one_way_result = f_oneway(man['perspectiveScore'],
+                          woman['perspectiveScore'])
 
-print("\nTwo-way ANOVA:")
-print(two_way_result)
+print("\nOne-way ANOVA:")
+print(one_way_result)
 
 
 # In[35]:
@@ -485,6 +483,12 @@ plt.legend()
 get_averages('tbPolairty')
 
 
+# In[88]:
+
+
+get_averages('tbObjectivity')
+
+
 # **Null Hypothesis**: There is no difference in mean textblob scores among race and gender.
 # 
 # **Alternative Hypothesis**: There is a difference in mean textblob scores among race and gender.
@@ -503,11 +507,35 @@ print("\nTwo-way ANOVA:")
 print(two_way_result)
 
 
+# In[89]:
+
+
+# Performs two-way ANOVA on race and gender scores for textblob
+formula = 'tbObjectivity ~ Race + Gender + Race:Gender'
+model = ols(formula, audit_results).fit()
+two_way_result = anova_lm(model)
+
+print("\nTwo-way ANOVA:")
+print(two_way_result)
+
+
 # In[42]:
 
 
-# Performs two-way ANOVA on race scores for textblob
+# Performs one-way ANOVA on race scores for textblob
 formula = 'tbPolairty ~ Race'
+model = ols(formula, audit_results).fit()
+two_way_result = anova_lm(model)
+
+print("\nTwo-way ANOVA:")
+print(two_way_result)
+
+
+# In[90]:
+
+
+# Performs one-way ANOVA on race scores for textblob
+formula = 'tbObjectivity ~ Race'
 model = ols(formula, audit_results).fit()
 two_way_result = anova_lm(model)
 
@@ -518,8 +546,20 @@ print(two_way_result)
 # In[43]:
 
 
-# Performs two-way ANOVA on race scores for textblob
+# Performs one-way ANOVA on race scores for textblob
 formula = 'tbPolairty ~ Gender'
+model = ols(formula, audit_results).fit()
+two_way_result = anova_lm(model)
+
+print("\nTwo-way ANOVA:")
+print(two_way_result)
+
+
+# In[92]:
+
+
+# Performs one-way ANOVA on race scores for textblob
+formula = 'tbObjectivity ~ Gender'
 model = ols(formula, audit_results).fit()
 two_way_result = anova_lm(model)
 
@@ -530,9 +570,20 @@ print(two_way_result)
 # In[44]:
 
 
-# Performs one-way ANOVA on black and white scores for Perspective Api
+# Performs one-way ANOVA on black and white scores for textblob
 one_way_result = f_oneway(black['tbPolairty'],
                           white['tbPolairty'])
+
+print("One-way ANOVA:")
+print(one_way_result)
+
+
+# In[93]:
+
+
+# Performs one-way ANOVA on black and white scores for textblob
+one_way_result = f_oneway(black['tbObjectivity'],
+                          white['tbObjectivity'])
 
 print("One-way ANOVA:")
 print(one_way_result)
@@ -541,9 +592,20 @@ print(one_way_result)
 # In[45]:
 
 
-# Performs one-way ANOVA on black and asian scores for Perspective Api
+# Performs one-way ANOVA on black and asian scores for textblob
 one_way_result = f_oneway(black['tbPolairty'],
                           asian['tbPolairty'])
+
+print("One-way ANOVA:")
+print(one_way_result)
+
+
+# In[94]:
+
+
+# Performs one-way ANOVA on black and asian scores for textblob
+one_way_result = f_oneway(black['tbObjectivity'],
+                          asian['tbObjectivity'])
 
 print("One-way ANOVA:")
 print(one_way_result)
@@ -555,6 +617,17 @@ print(one_way_result)
 # Performs one-way ANOVA on asian and white scores for Perspective Api
 one_way_result = f_oneway(audit_results[audit_results['Race'] == 'white']['tbPolairty'],
                           audit_results[audit_results['Race'] == 'asian']['tbPolairty'])
+
+print("One-way ANOVA:")
+print(one_way_result)
+
+
+# In[95]:
+
+
+# Performs one-way ANOVA on asian and white scores for Perspective Api
+one_way_result = f_oneway(audit_results[audit_results['Race'] == 'white']['tbObjectivity'],
+                          audit_results[audit_results['Race'] == 'asian']['tbObjectivity'])
 
 print("One-way ANOVA:")
 print(one_way_result)
